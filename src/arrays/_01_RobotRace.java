@@ -16,23 +16,32 @@ public class _01_RobotRace {
 			robots[i].setY(550);
 			robots[i].setSpeed(10);
 		}
-		Boolean memes = false;
-		while (memes == false) {
-			for (int j = 0; j < robots.length; j++) {
-				Random random = new Random();
-				int coronavirus = random.nextInt(50);
-				if (robots[j].getY() <= 0) {
-					memes = true;
-					JOptionPane.showMessageDialog(null, "The winner is " + j);
-				}
-				robots[j].move(coronavirus);
+		
+		  Boolean memes = false; while (memes == false) { for (int j = 0; j <
+		  robots.length; j++) { Random random = new Random(); int coronavirus =
+		  random.nextInt(50); if (robots[j].getY() <= 0) { memes = true;
+		  JOptionPane.showMessageDialog(null, "The winner is " + j); break; }
+		  robots[j].move(coronavirus); }
+		  
+		  }
+		 	for (int i = 0; i < robots.length; i++) {
+		robots[i].setX(i * 100 + 100);
+		robots[i].setY(500);
+		}
+		 Boolean elmo = false;
+		for (int k = 0; k < 27; k++) {
+		for (int i = 0; i < robots.length; i++) {
+			if (robots[i].getY() >= 550) {
+				JOptionPane.showMessageDialog(null, "The winner is " +i);
+				System.out.println("hello");
+				System.exit(0);
 			}
-
-		}
-		for (int k = 0; k < robots.length; k++) {
-			robots[k].turn(10);
+			robots[i].move(new Random().nextInt(20)+60);
+			robots[i].turn(10);
 			
+		}	
 		}
+		
 	}
 
 }
