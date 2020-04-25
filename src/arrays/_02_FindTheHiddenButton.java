@@ -23,6 +23,7 @@ public class _02_FindTheHiddenButton implements ActionListener{
 	JButton[] buttons;
 	//2 create an int variable called hiddenButton
 	int hiddenButton;
+	Random random = new Random();
 	public static void main(String[] args) {
 		new _02_FindTheHiddenButton().start();
 	}
@@ -47,7 +48,15 @@ public class _02_FindTheHiddenButton implements ActionListener{
 		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		window.setVisible(true);
 		JOptionPane.showMessageDialog(null, "The rules of the game is to find the hidden button.");
-		hiddenButton = <num;
+		hiddenButton = random.nextInt(num);
+		buttons[hiddenButton].setText("ME");
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		buttons[hiddenButton].setText("");
 			//6. initialize each JButton in the array
 			//7. add the ActionListener to each JButton
 			//8. add each JButton to the panel
@@ -76,7 +85,12 @@ public class _02_FindTheHiddenButton implements ActionListener{
 		JButton buttonClicked = (JButton)e.getSource();
 		
 		//17. if the hiddenButton is clicked, tell the user that they win.
-		
+		if(e.getSource()==buttons[hiddenButton]) {
+			JOptionPane.showMessageDialog(null, "You Won!");
+		}
 		//18. else tell them to try again
+		else {
+			JOptionPane.showMessageDialog(null, "Try Again");
+		}
 	}
 }
